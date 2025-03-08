@@ -1,0 +1,12 @@
+<div >
+            <h2 className='text-xl my-2 font-medium'>Select your travel dates</h2>
+
+            <div className='grid grid-cols-[auto,2fr,auto,1fr] gap-2 items-center'>
+              <h2 className='text-[1rem] mr-4 my-2 font-medium'>Start Date</h2>
+              <DatePickerDemo onChange={handleStartDateChange} />
+
+              <h2 className='text-[1rem] m-4 my-2 font-medium'>End Date</h2>
+              <DatePickerDemo onChange={handleEndDateChange} />
+            </div>
+
+          </div>

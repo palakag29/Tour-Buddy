@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { Button } from './components/ui/button'
 import "./App.css";
+import Hero from './components/ui/custom/Hero';
+import Header from './components/ui/custom/Header';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-    <h1 className='text-3xl underline blue'>Welcome</h1>
-    <Button variant='destructive'>Submit</Button>
-    </>
+    <div>
+      <Header/>
+    <Hero/>
+    </div>
   )
 }
 
