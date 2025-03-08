@@ -12,7 +12,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Popover, PopoverContent, PopoverTrigger } from '../Popover'
+import { Popover, PopoverContent, PopoverTrigger } from '../popover.jsx'
 import { googleLogout } from '@react-oauth/google'
 import axios from 'axios';
 function Header() {
