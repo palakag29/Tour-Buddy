@@ -1,12 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button'
 import { IoIosSend } from "react-icons/io";
+import { MdContentCopy } from "react-icons/md";
+
 import { GetPlaceDetails, PHOTO_REF_URL } from '@/utils/GlobalApi';
+import { toast } from 'sonner';
 function InfoSec({ trip }) {
       const [photoUrl,setPhotoUrl] = useState();
+    // const [shareableLink, setShareableLink] = useState('');
+
       useEffect(()=>{
         trip&&GetPlaceImg();
       },[trip])
+    const copyToClipboard = () => {
+        const tripShareLink = window.location.href; // Gets the current URL
+        navigator.clipboard.writeText(tripShareLink)
+            .then(() => {
+                toast("Link copied to clipboard!");
+            })
+            .catch(err => {
+                console.error('Failed to copy link:', err);
+            });
+    };
 
       const GetPlaceImg=async()=>{
         const data={
@@ -44,7 +59,7 @@ function InfoSec({ trip }) {
                         </h2>
                     </div>
                 </div>
-                <Button className='mt-3 sm:mt-0 sm:ml-5'>
+                <Button onClick={copyToClipboard} className='mt-3 sm:mt-0 sm:ml-5'>
                     <IoIosSend />
                 </Button>
             </div>
