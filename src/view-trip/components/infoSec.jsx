@@ -3,12 +3,18 @@ import { Button } from '@/components/ui/button'
 import { IoIosSend } from "react-icons/io";
 
 import { GetPlaceDetails, PHOTO_REF_URL } from '@/utils/GlobalApi';
+import { toast } from 'sonner';
 function InfoSec({ trip }) {
     const [photoUrl, setPhotoUrl] = useState();
     useEffect(() => {
         trip && GetPlaceImg();
     }, [trip])
-
+    const handleCopyLink = () => {
+        const link = `${window.location.origin}/view-trip/${trip.id}`;
+        navigator.clipboard.writeText(link).then(() => {
+            toast('Link copied to clipboard!');
+        });
+    };
     const GetPlaceImg = async () => {
         const data = {
             textQuery: trip?.userSelection?.location?.label
@@ -45,7 +51,7 @@ function InfoSec({ trip }) {
                     </h2>
                 </div>
             </div>
-            <Button className='mt-3 sm:mt-0 sm:ml-5'>
+                <Button onClick={handleCopyLink}  className='mt-3 sm:mt-0 sm:ml-5'>
                 <IoIosSend />
             </Button>
         </div>

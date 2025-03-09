@@ -28,6 +28,7 @@ function viewtrip() {
     }
   }
   
+  
   return (<div>
 
         <Header/>
