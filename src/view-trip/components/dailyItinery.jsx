@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import PlaceCardItem from './PlaceCardItem';
 
 function DailyItinery({ trip }) {
+    console.log(trip.tripData)
+    // console.log(trip.tripData.itinerary)
     return (
         <div>
             <h2 className='font-bold text-lg mt-10 mb-7'>Places to Visit</h2>

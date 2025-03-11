@@ -44,8 +44,8 @@ function CreateTrip() {
     onError: (error) => console.log(error)
   })
 
- 
-  
+
+
   const OnGenerateTrip = async () => {
 
     const user = localStorage.getItem('user')
@@ -63,10 +63,10 @@ function CreateTrip() {
       .replace('{traveler}', formData?.traveler)
       .replace('{budget}', formData?.budget)
 
-      console.log(FINAL_PROMPT)
+    console.log(FINAL_PROMPT)
     setLoading(true);
     const result = await chatSession.sendMessage(FINAL_PROMPT);
-    
+
     console.log("--", result?.response?.text());
     setLoading(false);
     console.log(formData)
@@ -99,12 +99,12 @@ function CreateTrip() {
       userSelection: formData,
       tripData: JSON.parse(TripData),
       userEmail: user?.email,
-      id: docId
+      id: docId,
     });
     setLoading(false);
-    navigate('/view-trip/'+docId);
-  } 
- 
+    navigate('/view-trip/' + docId);
+  }
+
   return (
     <div>
       <Header />
@@ -176,10 +176,10 @@ function CreateTrip() {
           <DialogContent>
             <DialogHeader>
               <DialogDescription>
-              
+
                 <h2 className='font-bold text-lg mt-7'>Sign in With Google</h2>
                 <p>Sign in to the App with Google Authentication Security</p>
-                <Button 
+                <Button
                   onClick={login}
                   className="w-full mt-5 gap-4 items-center ">
                   <FcGoogle className='h-1 w-7' />
