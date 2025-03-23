@@ -22,7 +22,7 @@ function DailyItinery({ trip }) {
                                 <div className='grid md:grid-cols-2 gap-5'>
                                     {info.places.map((place, index) => (
                                         <div key={index} className='my-3'>
-                                            <p className='font-medium text-sm text-orange-300'> {place.timeSlots || place.timeSlot}</p>
+                                            <p className='font-medium text-sm text-orange-300'> {place.timeSlots || place.timeSlot || info.bestTimeToVisit}</p>
                                             <PlaceCardItem place={place} />
                                         </div>
                                     ))}
